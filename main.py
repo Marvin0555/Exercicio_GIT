@@ -1,10 +1,14 @@
 from datetime import datetime
 
-date_de_agora = datetime.now()
+date_time = datetime.now()
 
 print("Aula 1 de Github")
 print(f"Soma de 1 + 1 = {1+1}")
 
 # print(data_hora_hoje)
-data_de_hoje = date_de_agora.date()
+data_de_hoje = date_time.date()
 print(f"Data de hoje: {data_de_hoje}" )
+
+hora_de_agora = date_time.time()
+print(f"Hora de agora: {hora_de_agora}")
+

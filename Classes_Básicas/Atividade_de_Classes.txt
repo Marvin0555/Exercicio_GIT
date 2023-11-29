@@ -1,0 +1,74 @@
+// Classe dos Jogos
+class Jogos {
+    nome: string;
+    genero: string;
+    distribuido: string;
+    lançamento: string;
+
+    constructor(nome: string, genero: string, distribuido: string, lançamento: string) {
+        this.nome = nome;
+        this.genero = genero;
+        this.distribuido = distribuido;
+        this.lançamento = lançamento;
+    }
+}
+
+// Classe dos Filmes
+class Filmes {
+    nome: string;
+    genero: string;
+    diretor: string;
+    lançamento: string;
+
+    constructor(nome: string, genero: string, diretor: string, lançamento: string) {
+        this.nome = nome;
+        this.genero = genero;
+        this.diretor = diretor;
+        this.lançamento = lançamento;
+    }
+}
+
+// Classe dos Cachorros
+class Cachorros {
+    raça: string;
+    comprimento: string;
+    função: string;
+    mordida: string;
+
+    constructor(raça: string, comprimento: string, função: string, mordida: string) {
+        this.raça = raça;
+        this.comprimento = comprimento;
+        this.função = função;
+        this.mordida = mordida;
+    }
+}
+
+// Criando 3 objetos da classe Jogos
+let Jogo_1 = new Jogos("Sekiro: Shadows Die Twice", "Soulslike", "FromSoftware", "2019");
+let Jogo_2 = new Jogos("Resident Evil 7", "Survival Horror", "Capcom", "2017");
+let Jogo_3 = new Jogos("Hades", "Roguelike", "Supergiant Games", "2018");
+
+// Criando 3 objetos da classe Filmes
+let Filme_1 = new Filmes("Joker", "Drama", "Todd Phillips", "2019");
+let Filme_2 = new Filmes("Club da Luta", "Ação", "David Fincher", "1999");
+let Filme_3 = new Filmes("Forest Gump", "Drama", "Robert Zemeckis", "1994");
+
+// Criando 3 objetos da classe Cachorros
+let Cachorro_1 = new Cachorros("Pastor Alemão", "65 cm", "Proteção e Companhia", "238 PSI");
+let Cachorro_2 = new Cachorros("Kangal", "81 cm", "Pastoreio", "743 PSI");
+let Cachorro_3 = new Cachorros("Husky Siberiano", "60 cm", "Companhia", "320 PSI");
+
+// Apresentando os objetos da classe Jogos
+console.log(`O jogo é ${Jogo_1.nome} do gênero ${Jogo_1.genero} e foi lançado em ${Jogo_1.lançamento} pela ${Jogo_1.distribuido}`);
+console.log(`O jogo é ${Jogo_2.nome} do gênero ${Jogo_2.genero} e foi lançado em ${Jogo_2.lançamento} pela ${Jogo_2.distribuido}`);
+console.log(`O jogo é ${Jogo_3.nome} do gênero ${Jogo_3.genero} e foi lançado em ${Jogo_3.lançamento} pela ${Jogo_3.distribuido}\n`);
+
+// Apresentando os objetos da classe Filmes
+console.log(`O filme é ${Filme_1.nome} do gênero ${Filme_1.genero} e foi lançado em ${Filme_1.lançamento} pelo diretor ${Filme_1.diretor}`);
+console.log(`O filme é ${Filme_2.nome} do gênero ${Filme_2.genero} e foi lançado em ${Filme_2.lançamento} pelo diretor ${Filme_2.diretor}`);
+console.log(`O filme é ${Filme_3.nome} do gênero ${Filme_3.genero} e foi lançado em ${Filme_3.lançamento} pelo diretor ${Filme_3.diretor}\n`);
+
+// Apresentando os objetos da classe Cachorros
+console.log(`O ${Cachorro_1.raça} tem comprimento de ${Cachorro_1.comprimento} e sua função é ${Cachorro_1.função} e sua mordida tem força de ${Cachorro_1.mordida}`);
+console.log(`O ${Cachorro_2.raça} tem comprimento de ${Cachorro_2.comprimento} e sua função é ${Cachorro_2.função} e sua mordida tem força de ${Cachorro_2.mordida}`);
+console.log(`O ${Cachorro_3.raça} tem comprimento de ${Cachorro_3.comprimento} e sua função é ${Cachorro_3.função} e sua mordida tem força de ${Cachorro_3.mordida}\n`);
