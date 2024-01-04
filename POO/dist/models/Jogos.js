@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Jogos = void 0;
-
 // Classe dos Jogos
 class Jogos {
     constructor(nome, genero, distribuido, lançamento) {

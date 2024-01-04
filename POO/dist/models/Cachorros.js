@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cachorros = void 0;
-
 // Classe dos Cachorros
 class Cachorros {
     constructor(raça, comprimento, função, mordida) {

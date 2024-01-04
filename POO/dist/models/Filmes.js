@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Filmes = void 0;
-
 // Classe dos Filmes, tem a implementação do Encapsulamento
 class Filmes {
     constructor(nome, diretor, lançamento) {
