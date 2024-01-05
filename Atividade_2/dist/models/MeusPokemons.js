@@ -52,6 +52,7 @@ function RemoveMeuPokemon(ID) {
 }
 exports.RemoveMeuPokemon = RemoveMeuPokemon;
 function GetMeuPokemon() {
+    console.clear();
     Object.keys(exports.MeusPokemons_Dicionario).forEach(id => imprimirDadosDoPokemon(Number(id)));
     readlineSync.question("Pressione Enter para continuar...");
 }

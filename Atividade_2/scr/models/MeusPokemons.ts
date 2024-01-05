@@ -35,6 +35,7 @@ export function RemoveMeuPokemon(ID: number) {
     delete MeusPokemons_Dicionario[ID];
 }
 export function GetMeuPokemon() {
+    console.clear();
     Object.keys(MeusPokemons_Dicionario).forEach(id => imprimirDadosDoPokemon(Number(id)));
     readlineSync.question("Pressione Enter para continuar...");
 }

@@ -1,25 +1,24 @@
 import { TodosPokemons } from "./Pokemons";
-import { HabilidadesPokemon } from "./HabilidadesPokemon";
-export class TipoFogo extends TodosPokemons{
-    Habilidade1_nome:string = "";
-    Habilidade1_dano:number = 0;
-    Habilidade1_testo:string = "";
-    Habilidade1_prioridade:number = 0;
-    Habilidade2_nome:string = "";
-    Habilidade2_dano:number = 0;
-    Habilidade2_testo:string = "";
-    Habilidade2_prioridade:number = 0;
-    Habilidade3_nome:string = "";
-    Habilidade3_dano:number = 0;
-    Habilidade3_testo:string = "";
-    Habilidade3_prioridade:number = 0;
-    Habilidade4_nome:string = "";
-    Habilidade4_dano:number = 0;
-    Habilidade4_testo:string = "";
-    Habilidade4_prioridade:number = 0;
+export class TipoEletrico extends TodosPokemons{
+    private Habilidade1_nome:string = "";
+    private Habilidade1_dano:number = 0;
+    private Habilidade1_testo:string = "";
+    private Habilidade1_prioridade:number = 0;
+    private Habilidade2_nome:string = "";
+    private Habilidade2_dano:number = 0;
+    private Habilidade2_testo:string = "";
+    private Habilidade2_prioridade:number = 0;
+    private Habilidade3_nome:string = "";
+    private Habilidade3_dano:number = 0;
+    private Habilidade3_testo:string = "";
+    private Habilidade3_prioridade:number = 0;
+    private Habilidade4_nome:string = "";
+    private Habilidade4_dano:number = 0;
+    private Habilidade4_testo:string = "";
+    private Habilidade4_prioridade:number = 0;
 
     
-    constructor(nome:string, vida:number, energia:number,velocidade:number,tipo: string ="Fogo"){
+    constructor(nome:string, vida:number, energia:number,velocidade:number,tipo: string ="Elétrico"){
         super(nome, tipo, vida, energia,velocidade);
     }
 
