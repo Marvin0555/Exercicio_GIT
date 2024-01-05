@@ -9,16 +9,16 @@ class TodosPokemons {
         this.energia = energia;
         this.velocidade = velocidade;
     }
-    Habilidade_1(nome, dano, testo, prioridade) {
+    Habilidade1(nome, dano, testo, prioridade) {
         console.log("Habilidade 1");
     }
-    Habilidade_2(nome, dano, testo, prioridade) {
+    Habilidade2(nome, dano, testo, prioridade) {
         console.log("Habilidade 2");
     }
-    Habilidade_3(nome, dano, testo, prioridade) {
+    Habilidade3(nome, dano, testo, prioridade) {
         console.log("Habilidade 3");
     }
-    Habilidade_4(nome, dano, testo, prioridade) {
+    Habilidade4(nome, dano, testo, prioridade) {
         console.log("Habilidade 4");
     }
 }

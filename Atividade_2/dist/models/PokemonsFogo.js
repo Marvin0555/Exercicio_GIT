@@ -47,20 +47,44 @@ class TipoFogo extends Pokemons_1.TodosPokemons {
         this.Habilidade4_prioridade = prioridade;
     }
     Habilidade1() {
-        console.log("Habilidade 1:", this.Habilidade1_nome, " // ", "Dano da Habilidade:", this.Habilidade1_dano, " // ", "Prioridade da Habilidade:", this.Habilidade1_prioridade);
-        console.log(this.Habilidade1_testo);
+        console.log(`
+    ╔════════════════════════════════════════════════
+    ║   ${this.Habilidade1_nome}                     
+    ║   Dano da Habilidade: ${this.Habilidade1_dano} 
+    ║   Prioridade: ${this.Habilidade1_prioridade}   
+    ║   ${this.Habilidade1_testo}                    
+    ╚════════════════════════════════════════════════
+        `);
     }
     Habilidade2() {
-        console.log("Habilidade 2:", this.Habilidade2_nome, " // ", "Dano da Habilidade:", this.Habilidade2_dano, " // ", "Prioridade da Habilidade:", this.Habilidade2_prioridade);
-        console.log(this.Habilidade2_testo);
+        console.log(`
+    ╔════════════════════════════════════════════════
+    ║   ${this.Habilidade2_nome}                     
+    ║   Dano da Habilidade: ${this.Habilidade2_dano} 
+    ║   Prioridade: ${this.Habilidade2_prioridade}   
+    ║   ${this.Habilidade2_testo}                    
+    ╚════════════════════════════════════════════════
+        `);
     }
     Habilidade3() {
-        console.log("Habilidade 3:", this.Habilidade3_nome, " // ", "Dano da Habilidade:", this.Habilidade3_dano, " // ", "Prioridade da Habilidade:", this.Habilidade3_prioridade);
-        console.log(this.Habilidade3_testo);
+        console.log(`
+    ╔════════════════════════════════════════════════
+    ║   ${this.Habilidade3_nome}                     
+    ║   Dano da Habilidade: ${this.Habilidade3_dano} 
+    ║   Prioridade: ${this.Habilidade3_prioridade}   
+    ║   ${this.Habilidade3_testo}                    
+    ╚════════════════════════════════════════════════
+        `);
     }
     Habilidade_4(nome, dano, testo, prioridade) {
-        console.log("Habilidade 4:", this.Habilidade4_nome, " // ", "Dano da Habilidade:", this.Habilidade4_dano, " // ", "Prioridade da Habilidade:", this.Habilidade4_prioridade);
-        console.log(this.Habilidade4_testo);
+        console.log(`
+    ╔════════════════════════════════════════════════
+    ║   ${this.Habilidade4_nome}                     
+    ║   Dano da Habilidade: ${this.Habilidade4_dano} 
+    ║   Prioridade: ${this.Habilidade4_prioridade}   
+    ║   ${this.Habilidade4_testo}                    
+    ╚════════════════════════════════════════════════
+        `);
     }
 }
 exports.TipoFogo = TipoFogo;

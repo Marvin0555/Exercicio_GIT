@@ -2,8 +2,13 @@ import { TipoFogo } from "./PokemonsFogo";
 import {HabilidadesPokemon} from "./HabilidadesPokemon";
 
 // Dicionário simples fora de uma classe
-export const DicionarioPokemon: { [ID: number]: any } = {};
+export const DicionarioPokemon: { [ID: number]: { nome: string, tipo: string, vida: number, energia: number, velocidade: number, habilidade_1: any, habilidade_2: any } } = {};
+DicionarioPokemon[1] = { nome: "Charizard", tipo: "Fogo", vida: 80, energia: 100, velocidade: 90,habilidade_1: HabilidadesPokemon.Ember(),habilidade_2: HabilidadesPokemon.Flamethrower() };
+DicionarioPokemon[4] = { nome: "Arcanine", tipo: "Fogo", vida: 90, energia: 95, velocidade: 100, habilidade_1: HabilidadesPokemon.Ember(),habilidade_2: HabilidadesPokemon.Flamethrower() };
+//console.log(DicionarioPokemon[1].nome, DicionarioPokemon[1].tipo, DicionarioPokemon[1].vida, DicionarioPokemon[1].velocidade, DicionarioPokemon[1].energia);
+//console.log(DicionarioPokemon[4].nome, DicionarioPokemon[4].tipo, DicionarioPokemon[4].vida, DicionarioPokemon[4].velocidade, DicionarioPokemon[4].energia);
 
+/*
 export const Charizard = new TipoFogo("Charizard", 80, 100, 90);
 Charizard.GetHabilidade_1(...HabilidadesPokemon.Ember());
 Charizard.GetHabilidade_2(...HabilidadesPokemon.Flamethrower());
@@ -23,3 +28,4 @@ console.log(DicionarioPokemon[4].nome, DicionarioPokemon[4].tipo, DicionarioPoke
 //2: { nome: "Blastoise", tipo: "Água", vida: 85, energia: 95, velocidade: 78 },
 //3: { nome: "Venusaur", tipo: "Grama", vida: 92, energia: 88, velocidade: 82 },
 //4: { nome: "Arcanine", tipo: "Fogo", vida: 90, energia: 95, velocidade: 100 }
+*/

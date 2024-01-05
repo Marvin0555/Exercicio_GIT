@@ -20,7 +20,7 @@ export class MenuMain {
             switch (userInput) {
                 case "1":
                     console.log("Meu time");
-                    GetMeuPokemon();
+                    GetMeuPokemon()
                     break;
                 case "2":
                     console.log("Escolher Pokemons");

@@ -1,7 +1,8 @@
 import * as readlineSync from 'readline-sync';
-import { DicionarioPokemon, Charizard } from "../CriarPokemons";
-import { AddMeuPokemon } from '../MeusPokemons';
-
+import { DicionarioPokemon} from "../CriarPokemons";
+import { AddMeuPokemon, VerificarPokemon } from '../MeusPokemons';
+import { TipoFogo } from '../PokemonsFogo';
+import {HabilidadesPokemon} from '../HabilidadesPokemon';
 
 export class EscolherTime{
     
@@ -27,10 +28,13 @@ export class EscolherTime{
                 continuar = false;   
             }else {
                 console.clear();
-                console.log(`\nVocê escolheu o Pokémon: `, DicionarioPokemon[numeroPokemon].nome, "Suas Habilidades são:", "\n");
-                DicionarioPokemon[numeroPokemon].Habilidade1();
+                const habilidade_1 = DicionarioPokemon[numeroPokemon].habilidade_1;
+                const habilidade_2 = DicionarioPokemon[numeroPokemon].habilidade_2;
+
+                console.log(`\nVocê escolheu o Pokémon: `, DicionarioPokemon[numeroPokemon].nome, "\n");
+                console.log("Habilidade 1:", habilidade_1[0], " // " , "Dano da Habilidade:", habilidade_1[1], " // " , "Prioridade da Habilidade:", habilidade_1[2]);
                 console.log("\n");
-                DicionarioPokemon[numeroPokemon].Habilidade2();
+                console.log("Habilidade 2:", habilidade_2[0], " // " , "Dano da Habilidade:", habilidade_2[1], " // " , "Prioridade da Habilidade:", habilidade_2[2]);
                 console.log("\n");
 
                 while(escolha){
@@ -38,8 +42,20 @@ export class EscolherTime{
                     switch (confirmar){
                         case "s":
                             console.log("Escolha confirmada");
-                            readlineSync.question("Pressione Enter para continuar...");
-                            AddMeuPokemon(DicionarioPokemon[numeroPokemon].nome);
+                            
+                            if (DicionarioPokemon[numeroPokemon].tipo == "Fogo"){
+                                const pokemonFogo = new TipoFogo(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
+                                pokemonFogo.GetHabilidade_1(...HabilidadesPokemon.Ember());
+                                pokemonFogo.GetHabilidade_2(...HabilidadesPokemon.Flamethrower());
+                                const id_pokemon = VerificarPokemon();
+                                if (id_pokemon == 0){
+                                    console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
+                                }
+                                else{
+                                    AddMeuPokemon(id_pokemon,pokemonFogo);
+                                }
+                                readlineSync.question("Pressione Enter para continuar...");
+                            }
                             escolha = false;
                             break;
                         case "n":

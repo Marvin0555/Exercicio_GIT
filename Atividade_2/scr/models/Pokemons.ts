@@ -13,17 +13,17 @@ export class TodosPokemons{
         this.velocidade = velocidade;   
     }
 
-    Habilidade_1(nome:string, dano:number, testo:string, prioridade:number){
+    Habilidade1(nome:string, dano:number, testo:string, prioridade:number){
         console.log("Habilidade 1");
     }
 
-    Habilidade_2(nome:string, dano:number, testo:string, prioridade:number){
+    Habilidade2(nome:string, dano:number, testo:string, prioridade:number){
         console.log("Habilidade 2");
     }
-    Habilidade_3(nome:string, dano:number, testo:string, prioridade:number){
+    Habilidade3(nome:string, dano:number, testo:string, prioridade:number){
         console.log("Habilidade 3");
     }
-    Habilidade_4(nome:string, dano:number, testo:string, prioridade:number){
+    Habilidade4(nome:string, dano:number, testo:string, prioridade:number){
         console.log("Habilidade 4");
     }
 

@@ -23,6 +23,8 @@ exports.EscolherTime = void 0;
 const readlineSync = __importStar(require("readline-sync"));
 const CriarPokemons_1 = require("../CriarPokemons");
 const MeusPokemons_1 = require("../MeusPokemons");
+const PokemonsFogo_1 = require("../PokemonsFogo");
+const HabilidadesPokemon_1 = require("../HabilidadesPokemon");
 class EscolherTime {
     static getMeuTime() {
         let continuar = true;
@@ -46,18 +48,31 @@ class EscolherTime {
             }
             else {
                 console.clear();
-                console.log(`\nVocê escolheu o Pokémon: `, CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, "Suas Habilidades são:", "\n");
-                CriarPokemons_1.DicionarioPokemon[numeroPokemon].Habilidade1();
+                const habilidade_1 = CriarPokemons_1.DicionarioPokemon[numeroPokemon].habilidade_1;
+                const habilidade_2 = CriarPokemons_1.DicionarioPokemon[numeroPokemon].habilidade_2;
+                console.log(`\nVocê escolheu o Pokémon: `, CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, "\n");
+                console.log("Habilidade 1:", habilidade_1[0], " // ", "Dano da Habilidade:", habilidade_1[1], " // ", "Prioridade da Habilidade:", habilidade_1[2]);
                 console.log("\n");
-                CriarPokemons_1.DicionarioPokemon[numeroPokemon].Habilidade2();
+                console.log("Habilidade 2:", habilidade_2[0], " // ", "Dano da Habilidade:", habilidade_2[1], " // ", "Prioridade da Habilidade:", habilidade_2[2]);
                 console.log("\n");
                 while (escolha) {
                     const confirmar = readlineSync.question("Digite s para confirmar ou n para cancelar a escolha: ");
                     switch (confirmar) {
                         case "s":
                             console.log("Escolha confirmada");
-                            readlineSync.question("Pressione Enter para continuar...");
-                            (0, MeusPokemons_1.AddMeuPokemon)(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome);
+                            if (CriarPokemons_1.DicionarioPokemon[numeroPokemon].tipo == "Fogo") {
+                                const pokemonFogo = new PokemonsFogo_1.TipoFogo(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
+                                pokemonFogo.GetHabilidade_1(...HabilidadesPokemon_1.HabilidadesPokemon.Ember());
+                                pokemonFogo.GetHabilidade_2(...HabilidadesPokemon_1.HabilidadesPokemon.Flamethrower());
+                                const id_pokemon = (0, MeusPokemons_1.VerificarPokemon)();
+                                if (id_pokemon == 0) {
+                                    console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
+                                }
+                                else {
+                                    (0, MeusPokemons_1.AddMeuPokemon)(id_pokemon, pokemonFogo);
+                                }
+                                readlineSync.question("Pressione Enter para continuar...");
+                            }
                             escolha = false;
                             break;
                         case "n":
