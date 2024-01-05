@@ -10,20 +10,14 @@ import * as readlineSync from 'readline-sync';
     // Obtendo os IDs dos Pokémons
     const idsDosPokemons = Object.keys(MeusPokemons_Dicionario).map(Number);
 
-    // Verificando quantos IDs existem
-    //console.log(`Total de Pokémons: ${idsDosPokemons.length}`);
-    //console.log(`IDs dos Pokémons: ${idsDosPokemons.join(', ')}`);
-
     // Encontrando o menor número ausente
     const intervaloEsperado = Array.from({ length: 6 }, (_, index) => index + 1);
     const idsAusentes = intervaloEsperado.filter(id => !idsDosPokemons.includes(id));
 
         if (idsAusentes.length > 0) {
             const menorNumeroAusente = Math.min(...idsAusentes);
-            //console.log(`Menor número ausente: ${menorNumeroAusente}`);
             return menorNumeroAusente;
         } else {
-            //console.log("Todos os IDs estão presentes no intervalo.");
             return 0;
         }
     }
@@ -31,15 +25,25 @@ import * as readlineSync from 'readline-sync';
 export function AddMeuPokemon(ID: number, Pokemon: any){
     MeusPokemons_Dicionario[ID] = Pokemon;
 }
-export function RemoveMeuPokemon(ID: number) {
-    delete MeusPokemons_Dicionario[ID];
+export function RemoveMeuPokemon(){
+    while (true) {
+        const ID: string = readlineSync.question("Digite o numero do Pokemon que deseja remover: ");
+        const existe = MeusPokemons_Dicionario.hasOwnProperty(Number(ID));
+        if (!existe) {
+            console.log("O ID informado não existe");
+            readlineSync.question("Pressione Enter para continuar...");
+            break;
+        }
+        else {
+            delete MeusPokemons_Dicionario[Number(ID)];
+            break;
+        }
+    }
 }
 export function GetMeuPokemon() {
-    console.clear();
-    Object.keys(MeusPokemons_Dicionario).forEach(id => imprimirDadosDoPokemon(Number(id)));
-    readlineSync.question("Pressione Enter para continuar...");
+    Object.keys(MeusPokemons_Dicionario).forEach(id => ImprimirDadosDoPokemon(Number(id)));
 }
-export function imprimirDadosDoPokemon(ID: number) {
+export function ImprimirDadosDoPokemon(ID: number) {
     console.log(`
     ++++++++++++++++++++++++++++++++++++++++++++++++
      Pokemon ${ID}: ${MeusPokemons_Dicionario[ID].nome}
@@ -49,7 +53,21 @@ export function imprimirDadosDoPokemon(ID: number) {
      Velocidade: ${MeusPokemons_Dicionario[ID].velocidade.toString()}
     ++++++++++++++++++++++++++++++++++++++++++++++++
     `);
-    MeusPokemons_Dicionario[ID].Habilidade1();
-    MeusPokemons_Dicionario[ID].Habilidade2();
-    
+}
+export function HabilidadePokemon(){
+    while (true) {
+        const ID: string = readlineSync.question("Digite o numero do Pokemon: ");
+        const existe = MeusPokemons_Dicionario.hasOwnProperty(Number(ID));
+        if (!existe) {
+            console.log("O ID informado não existe");
+            break;
+        }
+        else {
+            MeusPokemons_Dicionario[Number(ID)].Habilidade1();
+            MeusPokemons_Dicionario[Number(ID)].Habilidade2();
+            MeusPokemons_Dicionario[Number(ID)].Habilidade3();
+            MeusPokemons_Dicionario[Number(ID)].Habilidade4();
+            break;
+        }
+    }
 }

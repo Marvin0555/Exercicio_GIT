@@ -19,26 +19,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.imprimirDadosDoPokemon = exports.GetMeuPokemon = exports.RemoveMeuPokemon = exports.AddMeuPokemon = exports.VerificarPokemon = exports.MeusPokemons_Dicionario = void 0;
+exports.HabilidadePokemon = exports.ImprimirDadosDoPokemon = exports.GetMeuPokemon = exports.RemoveMeuPokemon = exports.AddMeuPokemon = exports.VerificarPokemon = exports.MeusPokemons_Dicionario = void 0;
 const readlineSync = __importStar(require("readline-sync"));
 // Criando um dicionário com os meus pokemons
 exports.MeusPokemons_Dicionario = {};
 function VerificarPokemon() {
     // Obtendo os IDs dos Pokémons
     const idsDosPokemons = Object.keys(exports.MeusPokemons_Dicionario).map(Number);
-    // Verificando quantos IDs existem
-    //console.log(`Total de Pokémons: ${idsDosPokemons.length}`);
-    //console.log(`IDs dos Pokémons: ${idsDosPokemons.join(', ')}`);
     // Encontrando o menor número ausente
     const intervaloEsperado = Array.from({ length: 6 }, (_, index) => index + 1);
     const idsAusentes = intervaloEsperado.filter(id => !idsDosPokemons.includes(id));
     if (idsAusentes.length > 0) {
         const menorNumeroAusente = Math.min(...idsAusentes);
-        //console.log(`Menor número ausente: ${menorNumeroAusente}`);
         return menorNumeroAusente;
     }
     else {
-        //console.log("Todos os IDs estão presentes no intervalo.");
         return 0;
     }
 }
@@ -47,17 +42,27 @@ function AddMeuPokemon(ID, Pokemon) {
     exports.MeusPokemons_Dicionario[ID] = Pokemon;
 }
 exports.AddMeuPokemon = AddMeuPokemon;
-function RemoveMeuPokemon(ID) {
-    delete exports.MeusPokemons_Dicionario[ID];
+function RemoveMeuPokemon() {
+    while (true) {
+        const ID = readlineSync.question("Digite o numero do Pokemon que deseja remover: ");
+        const existe = exports.MeusPokemons_Dicionario.hasOwnProperty(Number(ID));
+        if (!existe) {
+            console.log("O ID informado não existe");
+            readlineSync.question("Pressione Enter para continuar...");
+            break;
+        }
+        else {
+            delete exports.MeusPokemons_Dicionario[Number(ID)];
+            break;
+        }
+    }
 }
 exports.RemoveMeuPokemon = RemoveMeuPokemon;
 function GetMeuPokemon() {
-    console.clear();
-    Object.keys(exports.MeusPokemons_Dicionario).forEach(id => imprimirDadosDoPokemon(Number(id)));
-    readlineSync.question("Pressione Enter para continuar...");
+    Object.keys(exports.MeusPokemons_Dicionario).forEach(id => ImprimirDadosDoPokemon(Number(id)));
 }
 exports.GetMeuPokemon = GetMeuPokemon;
-function imprimirDadosDoPokemon(ID) {
+function ImprimirDadosDoPokemon(ID) {
     console.log(`
     ++++++++++++++++++++++++++++++++++++++++++++++++
      Pokemon ${ID}: ${exports.MeusPokemons_Dicionario[ID].nome}
@@ -67,7 +72,23 @@ function imprimirDadosDoPokemon(ID) {
      Velocidade: ${exports.MeusPokemons_Dicionario[ID].velocidade.toString()}
     ++++++++++++++++++++++++++++++++++++++++++++++++
     `);
-    exports.MeusPokemons_Dicionario[ID].Habilidade1();
-    exports.MeusPokemons_Dicionario[ID].Habilidade2();
 }
-exports.imprimirDadosDoPokemon = imprimirDadosDoPokemon;
+exports.ImprimirDadosDoPokemon = ImprimirDadosDoPokemon;
+function HabilidadePokemon() {
+    while (true) {
+        const ID = readlineSync.question("Digite o numero do Pokemon: ");
+        const existe = exports.MeusPokemons_Dicionario.hasOwnProperty(Number(ID));
+        if (!existe) {
+            console.log("O ID informado não existe");
+            break;
+        }
+        else {
+            exports.MeusPokemons_Dicionario[Number(ID)].Habilidade1();
+            exports.MeusPokemons_Dicionario[Number(ID)].Habilidade2();
+            exports.MeusPokemons_Dicionario[Number(ID)].Habilidade3();
+            exports.MeusPokemons_Dicionario[Number(ID)].Habilidade4();
+            break;
+        }
+    }
+}
+exports.HabilidadePokemon = HabilidadePokemon;

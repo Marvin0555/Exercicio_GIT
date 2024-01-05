@@ -1,6 +1,7 @@
 import * as readlineSync from 'readline-sync';
 import {EscolherTime} from "./TelaEscolherTime";
-import {GetMeuPokemon} from "../MeusPokemons";
+import {TelaMeuPokemons} from "./TelaMeuPokemons";
+import {TelaBatalha} from "./TelaBatalha";
 export class MenuMain {
     static Tela() {
         let continuar = true;
@@ -19,16 +20,14 @@ export class MenuMain {
 
             switch (userInput) {
                 case "1":
-                    console.log("Meu time");
-                    GetMeuPokemon()
+                    TelaMeuPokemons.Tela();
                     break;
                 case "2":
-                    console.log("Escolher Pokemons");
                     EscolherTime.getMeuTime();
                     // Tela de escolha de pokemons
                     break;
                 case "3":
-                    console.log("Batalhar");
+                    TelaBatalha.Tela();
                     break;
                 case "4":
                     console.log("Sair");

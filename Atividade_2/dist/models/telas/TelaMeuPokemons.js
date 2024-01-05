@@ -19,36 +19,31 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MenuMain = void 0;
+exports.TelaMeuPokemons = void 0;
+const MeusPokemons_1 = require("../MeusPokemons");
 const readlineSync = __importStar(require("readline-sync"));
-const TelaEscolherTime_1 = require("./TelaEscolherTime");
-const TelaMeuPokemons_1 = require("./TelaMeuPokemons");
-const TelaBatalha_1 = require("./TelaBatalha");
-class MenuMain {
+const MeusPokemons_2 = require("../MeusPokemons");
+class TelaMeuPokemons {
     static Tela() {
         let continuar = true;
         while (continuar) {
-            // Limpa a tela (pode não funcionar em todos os terminais/sistemas operacionais)
             console.clear();
-            console.log("/////////////////////////////////////Menu do jogo////////////////////////////////////");
-            console.log("1 - Meu time");
-            console.log("2 - Escolher Pokemons");
-            console.log("3 - Batalhar");
-            console.log("4 - Sair");
-            const userInput = readlineSync.question("Digite alguma coisa: ");
+            console.log("/////////////////////////////////////Meu time////////////////////////////////////////");
+            (0, MeusPokemons_1.GetMeuPokemon)();
+            console.log("1- Remover Pokemon");
+            console.log("2 - Habilidades do Pokemon");
+            console.log("3 - Sair");
+            const userInput = readlineSync.question("Escolha uma opção: ");
+            console.clear();
             switch (userInput) {
                 case "1":
-                    TelaMeuPokemons_1.TelaMeuPokemons.Tela();
+                    (0, MeusPokemons_2.RemoveMeuPokemon)();
                     break;
                 case "2":
-                    TelaEscolherTime_1.EscolherTime.getMeuTime();
-                    // Tela de escolha de pokemons
+                    (0, MeusPokemons_2.HabilidadePokemon)();
+                    readlineSync.question("Pressione Enter para continuar...");
                     break;
                 case "3":
-                    TelaBatalha_1.TelaBatalha.Tela();
-                    break;
-                case "4":
-                    console.log("Sair");
                     continuar = false; // Sair do loop
                     break;
                 default:
@@ -56,9 +51,7 @@ class MenuMain {
                     readlineSync.question("Pressione Enter para continuar...");
                     break;
             }
-            // Aguarda que o usuário pressione Enter
-            //readlineSync.keyInPause({ prompt: `Pressione Enter para continuar...`, mask: '', hideEchoBack: true });
         }
     }
 }
-exports.MenuMain = MenuMain;
+exports.TelaMeuPokemons = TelaMeuPokemons;
