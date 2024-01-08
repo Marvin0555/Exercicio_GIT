@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TipoAgua = void 0;
 const Pokemons_1 = require("./Pokemons");
 class TipoAgua extends Pokemons_1.TodosPokemons {
-    constructor(nome, vida, energia, velocidade, tipo = "Fogo") {
+    constructor(nome, vida, energia, velocidade, tipo = "Água") {
         super(nome, tipo, vida, energia, velocidade);
         this.Habilidade1_nome = "";
         this.Habilidade1_dano = 0;

@@ -22,7 +22,7 @@ export class TipoGrama extends TodosPokemons{
     private Habilidade4_prioridade:number = 0;
 
     
-    constructor(nome:string, vida:number, energia:number,velocidade:number,tipo: string ="Fogo"){
+    constructor(nome:string, vida:number, energia:number,velocidade:number,tipo: string ="Grama"){
         super(nome, tipo, vida, energia,velocidade);
     }
 

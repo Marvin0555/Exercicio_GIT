@@ -18,11 +18,12 @@ export function gerarNumerosAleatorios(): number[] {
 
 export function TimeInimigo() {
     const PokemonsAleatorios: number[] = gerarNumerosAleatorios();
+    console.log(PokemonsAleatorios);
     
     //const Pokemons1 = new TodosPokemons(DicionarioPokemon[PokemonsAleatorios[0]].nome,DicionarioPokemon[PokemonsAleatorios[0]].tipo, DicionarioPokemon[PokemonsAleatorios[0]].vida, DicionarioPokemon[PokemonsAleatorios[0]].energia, DicionarioPokemon[PokemonsAleatorios[0]].velocidade);
-    const Pokemon1 = new TipoFogo(DicionarioPokemon[PokemonsAleatorios[0]].nome, DicionarioPokemon[PokemonsAleatorios[0]].vida, DicionarioPokemon[PokemonsAleatorios[0]].energia, DicionarioPokemon[PokemonsAleatorios[0]].velocidade);
-    const Pokemon2 = new TipoFogo(DicionarioPokemon[PokemonsAleatorios[1]].nome, DicionarioPokemon[PokemonsAleatorios[1]].vida, DicionarioPokemon[PokemonsAleatorios[1]].energia, DicionarioPokemon[PokemonsAleatorios[1]].velocidade);
-    const Pokemon3 = new TipoFogo(DicionarioPokemon[PokemonsAleatorios[2]].nome, DicionarioPokemon[PokemonsAleatorios[2]].vida, DicionarioPokemon[PokemonsAleatorios[2]].energia, DicionarioPokemon[PokemonsAleatorios[2]].velocidade);
+    const Pokemon1 = new TodosPokemons(DicionarioPokemon[PokemonsAleatorios[0]].nome, DicionarioPokemon[PokemonsAleatorios[0]].tipo, DicionarioPokemon[PokemonsAleatorios[0]].vida, DicionarioPokemon[PokemonsAleatorios[0]].energia, DicionarioPokemon[PokemonsAleatorios[0]].velocidade);
+    const Pokemon2 = new TodosPokemons(DicionarioPokemon[PokemonsAleatorios[1]].nome, DicionarioPokemon[PokemonsAleatorios[1]].tipo, DicionarioPokemon[PokemonsAleatorios[1]].vida, DicionarioPokemon[PokemonsAleatorios[1]].energia, DicionarioPokemon[PokemonsAleatorios[1]].velocidade);
+    const Pokemon3 = new TodosPokemons(DicionarioPokemon[PokemonsAleatorios[2]].nome, DicionarioPokemon[PokemonsAleatorios[2]].tipo, DicionarioPokemon[PokemonsAleatorios[2]].vida, DicionarioPokemon[PokemonsAleatorios[2]].energia, DicionarioPokemon[PokemonsAleatorios[2]].velocidade);
     AddInimigoPokemon(1, Pokemon1);
     AddInimigoPokemon(2, Pokemon2);
     AddInimigoPokemon(3, Pokemon3);
@@ -43,11 +44,11 @@ export function AddInimigoPokemon(ID: number, Pokemon: any){
 export function ImprimirDadosDoPokemonInimigo(ID: number) {
     console.log(`
     ++++++++++++++++++++++++++++++++++++++++++++++++
-     Pokemon ${ID}: ${DicionarioPokemon[ID].nome}
-     Tipo: ${DicionarioPokemon[ID].tipo}
-     Vida: ${DicionarioPokemon[ID].vida.toString()}
-     Energia: ${DicionarioPokemon[ID].energia.toString()}
-     Velocidade: ${DicionarioPokemon[ID].velocidade.toString()}
+     Pokemon ${ID}: ${InimigoPokemons_Dicionario[ID].nome}
+     Tipo: ${InimigoPokemons_Dicionario[ID].tipo}
+     Vida: ${InimigoPokemons_Dicionario[ID].vida.toString()}
+     Energia: ${InimigoPokemons_Dicionario[ID].energia.toString()}
+     Velocidade: ${InimigoPokemons_Dicionario[ID].velocidade.toString()}
     ++++++++++++++++++++++++++++++++++++++++++++++++
     `);
 }

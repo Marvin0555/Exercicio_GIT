@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TipoVoador = void 0;
 const Pokemons_1 = require("./Pokemons");
 class TipoVoador extends Pokemons_1.TodosPokemons {
-    constructor(nome, vida, energia, velocidade, tipo = "Fogo") {
+    constructor(nome, vida, energia, velocidade, tipo = "Voador") {
         super(nome, tipo, vida, energia, velocidade);
         this.Habilidade1_nome = "";
         this.Habilidade1_dano = 0;
