@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "readline-sync": "^1.4.10"
+    "mysql": "^2.18.1",
+    "readline-sync": "^1.4.10",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@types/node": "^20.11.16",
     "@types/prompt-sync": "^4.2.3",
     "@types/readline-sync": "^1.4.8"
   }

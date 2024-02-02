@@ -11,6 +11,12 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 }) : function(o, v) {
     o["default"] = v;
 });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -18,12 +24,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TelaMeuPokemons = void 0;
 const MeusPokemons_1 = require("../MeusPokemons");
 const readlineSync = __importStar(require("readline-sync"));
 const MeusPokemons_2 = require("../MeusPokemons");
-class TelaMeuPokemons {
+const typeorm_1 = require("typeorm");
+let TelaMeuPokemons = class TelaMeuPokemons {
     static Tela() {
         let continuar = true;
         while (continuar) {
@@ -53,5 +63,12 @@ class TelaMeuPokemons {
             }
         }
     }
-}
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], TelaMeuPokemons.prototype, "id", void 0);
+TelaMeuPokemons = __decorate([
+    (0, typeorm_1.Entity)()
+], TelaMeuPokemons);
 exports.TelaMeuPokemons = TelaMeuPokemons;

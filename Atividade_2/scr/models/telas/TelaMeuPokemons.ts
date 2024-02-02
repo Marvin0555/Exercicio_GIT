@@ -1,7 +1,11 @@
 import {GetMeuPokemon} from "../MeusPokemons";
 import * as readlineSync from 'readline-sync';
 import {RemoveMeuPokemon, HabilidadePokemon} from "../MeusPokemons";
+import { Entity, PrimaryGeneratedColumn } from "typeorm";
+@Entity()
 export class TelaMeuPokemons {
+    @PrimaryGeneratedColumn()
+    id: number;
     static Tela() {
         let continuar = true;
 

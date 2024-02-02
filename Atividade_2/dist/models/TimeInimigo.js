@@ -45,7 +45,6 @@ function TimeInimigo() {
     AddInimigoPokemon(3, Pokemon3);
     console.clear();
     console.log("////////////////////////////////////////Time Inimigo///////////////////////////////////////");
-    console.log(PokemonsAleatorios);
     GetInimigoPokemon();
     readlineSync.question("Pressione Enter para continuar...");
 }

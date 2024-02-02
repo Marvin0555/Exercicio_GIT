@@ -5,9 +5,21 @@ import { TipoFogo } from '../classes_Pokemon/PokemonsFogo';
 import {HabilidadesPokemon} from '../HabilidadesPokemon';
 import { TipoAgua } from '../classes_Pokemon/PokemonsAgua';
 import { TipoGrama } from '../classes_Pokemon/PokemonsGrama';
+import { Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { TipoEletrico } from '../classes_Pokemon/PokemonsEletrico';
+import { TodosPokemons } from '../classes_Pokemon/Pokemons';
+import { TipoVoador } from '../classes_Pokemon/PokemonsVoador';
 
+@Entity()
 export class EscolherTime{
-    
+    @PrimaryGeneratedColumn()
+    id: number
+    Pokemon: TodosPokemons
+    @OneToMany(()=>TipoAgua, (tipoAgua)=>tipoAgua.escolherTime)
+    @OneToMany(()=>TipoFogo, (tipoFogo)=>tipoFogo.escolherTime)
+    @OneToMany(()=>TipoGrama, (tipoGrama)=>tipoGrama.escolherTime)
+    @OneToMany(()=>TipoEletrico, (tipoEletrico)=>tipoEletrico.escolherTime)
+    @OneToMany(()=> TipoVoador, (tipoVoador)=>tipoVoador.escolherTime) 
     static getMeuTime() {
         let continuar = true;
 
@@ -36,8 +48,8 @@ export class EscolherTime{
             console.log("ID - (19)" ,"Nome:",DicionarioPokemon[19].nome, "   Tipo:", DicionarioPokemon[19].tipo, "    Vida:", DicionarioPokemon[19].vida, "    Velocidade:", DicionarioPokemon[19].velocidade, "     Energia:", DicionarioPokemon[19].energia);
             console.log("ID - (20)" ,"Nome:",DicionarioPokemon[20].nome, "     Tipo:", DicionarioPokemon[20].tipo, "    Vida:", DicionarioPokemon[20].vida, "    Velocidade:", DicionarioPokemon[20].velocidade, "    Energia:", DicionarioPokemon[20].energia);
 
-            const pokemon: string = readlineSync.question("\nEscolha o Pokemon que deseja usar selecionando o ID dele ou digite 21 para sair: ");
-            const numeroPokemon: number = parseInt(pokemon);
+            const pokemon_escolha: string = readlineSync.question("\nEscolha o Pokemon que deseja usar selecionando o ID dele ou digite 21 para sair: ");
+            const numeroPokemon: number = parseInt(pokemon_escolha);
             if (isNaN(numeroPokemon) || numeroPokemon < 1 || numeroPokemon > 21) {
                 console.log("\nPor favor, escolha um número de ID valido \n");
                 readlineSync.question("Pressione Enter para continuar...");
@@ -72,13 +84,13 @@ export class EscolherTime{
                             console.log("Escolha confirmada");
                             if (DicionarioPokemon[numeroPokemon].tipo == "Fogo"){
                                 //Instanciando o Pokemon
-                                const PokemonFogo = new TipoFogo(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = new TipoFogo(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
                                 
                                 //Habilidades
-                                PokemonFogo.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
-                                PokemonFogo.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
-                                PokemonFogo.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
-                                PokemonFogo.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
+                                Pokemon.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
+                                Pokemon.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
+                                Pokemon.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
+                                Pokemon.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
 
                                 //Adicionando o Pokemon ao Time e verificando se o time contem 6 pokemons
                                 const id_pokemon = VerificarPokemon();
@@ -86,18 +98,18 @@ export class EscolherTime{
                                     console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
                                 }
                                 else{
-                                    AddMeuPokemon(id_pokemon,PokemonFogo);
+                                    AddMeuPokemon(id_pokemon,Pokemon);
                                 }
                             }
                             else if(DicionarioPokemon[numeroPokemon].tipo == "Água"){
                                 //Instanciando o Pokemon
-                                const PokemonsAgua = new TipoAgua(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = new TipoAgua(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
                                 
                                 //Habilidades
-                                PokemonsAgua.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
-                                PokemonsAgua.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
-                                PokemonsAgua.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
-                                PokemonsAgua.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
+                                Pokemon.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
+                                Pokemon.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
+                                Pokemon.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
+                                Pokemon.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
 
                                 //Adicionando o Pokemon ao Time e verificando se o time contem 6 pokemons
                                 const id_pokemon = VerificarPokemon();
@@ -105,18 +117,18 @@ export class EscolherTime{
                                     console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
                                 }
                                 else{
-                                    AddMeuPokemon(id_pokemon,PokemonsAgua);
+                                    AddMeuPokemon(id_pokemon,Pokemon);
                                 }
                             }
                             else if(DicionarioPokemon[numeroPokemon].tipo == "Grama"){
                                 //Instanciando o Pokemon
-                                const PokemonsGrama = new TipoGrama(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = new TipoGrama(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
                                 
                                 //Habilidades
-                                PokemonsGrama.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
-                                PokemonsGrama.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
-                                PokemonsGrama.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
-                                PokemonsGrama.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
+                                Pokemon.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
+                                Pokemon.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
+                                Pokemon.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
+                                Pokemon.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
 
                                 //Adicionando o Pokemon ao Time e verificando se o time contem 6 pokemons
                                 const id_pokemon = VerificarPokemon();
@@ -124,18 +136,18 @@ export class EscolherTime{
                                     console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
                                 }
                                 else{
-                                    AddMeuPokemon(id_pokemon,PokemonsGrama);
+                                    AddMeuPokemon(id_pokemon,Pokemon);
                                 }
                             }
                             else if(DicionarioPokemon[numeroPokemon].tipo == "Eletrico"){
                                 //Instanciando o Pokemon
-                                const PokemonsEletrico = new TipoGrama(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = new TipoEletrico(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
                                 
                                 //Habilidades
-                                PokemonsEletrico.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
-                                PokemonsEletrico.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
-                                PokemonsEletrico.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
-                                PokemonsEletrico.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
+                                Pokemon.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
+                                Pokemon.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
+                                Pokemon.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
+                                Pokemon.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
 
                                 //Adicionando o Pokemon ao Time e verificando se o time contem 6 pokemons
                                 const id_pokemon = VerificarPokemon();
@@ -143,18 +155,18 @@ export class EscolherTime{
                                     console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
                                 }
                                 else{
-                                    AddMeuPokemon(id_pokemon,PokemonsEletrico);
+                                    AddMeuPokemon(id_pokemon,Pokemon);
                                 }
                             }
                             else if(DicionarioPokemon[numeroPokemon].tipo == "Voador"){
                                 //Instanciando o Pokemon
-                                const PokemonsVoador = new TipoGrama(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = new TipoGrama(DicionarioPokemon[numeroPokemon].nome, DicionarioPokemon[numeroPokemon].vida, DicionarioPokemon[numeroPokemon].energia, DicionarioPokemon[numeroPokemon].velocidade);
                                 
                                 //Habilidades
-                                PokemonsVoador.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
-                                PokemonsVoador.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
-                                PokemonsVoador.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
-                                PokemonsVoador.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
+                                Pokemon.GetHabilidade_1(habilidade_1[0],habilidade_1[1],habilidade_1[2], habilidade_1[3], habilidade_1[4]);
+                                Pokemon.GetHabilidade_2(habilidade_2[0],habilidade_2[1],habilidade_2[2], habilidade_2[3], habilidade_2[4]);
+                                Pokemon.GetHabilidade_3(habilidade_3[0],habilidade_3[1],habilidade_3[2], habilidade_3[3], habilidade_3[4]);
+                                Pokemon.GetHabilidade_4(habilidade_4[0],habilidade_4[1],habilidade_4[2], habilidade_4[3], habilidade_4[4]);
                                 
                                 //Adicionando o Pokemon ao Time e verificando se o time contem 6 pokemons
                                 const id_pokemon = VerificarPokemon();
@@ -162,7 +174,7 @@ export class EscolherTime{
                                     console.log("Seu time ja contém 6 pokemons, nao foi possivel adicionar mais");
                                 }
                                 else{
-                                    AddMeuPokemon(id_pokemon,PokemonsVoador);
+                                    AddMeuPokemon(id_pokemon, Pokemon);
                                 }
                             }
                             readlineSync.question("Pressione Enter para continuar...");

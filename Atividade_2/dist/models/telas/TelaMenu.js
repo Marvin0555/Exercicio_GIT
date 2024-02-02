@@ -11,6 +11,12 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 }) : function(o, v) {
     o["default"] = v;
 });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -18,13 +24,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MenuMain = void 0;
 const readlineSync = __importStar(require("readline-sync"));
 const TelaEscolherTime_1 = require("./TelaEscolherTime");
 const TelaMeuPokemons_1 = require("./TelaMeuPokemons");
 const TelaBatalha_1 = require("./TelaBatalha");
-class MenuMain {
+const typeorm_1 = require("typeorm");
+let MenuMain = class MenuMain {
     static Tela() {
         let continuar = true;
         while (continuar) {
@@ -60,5 +70,24 @@ class MenuMain {
             //readlineSync.keyInPause({ prompt: `Pressione Enter para continuar...`, mask: '', hideEchoBack: true });
         }
     }
-}
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    (0, typeorm_1.OneToOne)(() => TelaBatalha_1.TelaBatalha),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", TelaBatalha_1.TelaBatalha)
+], MenuMain.prototype, "batalha", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => TelaMeuPokemons_1.TelaMeuPokemons),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", TelaMeuPokemons_1.TelaMeuPokemons)
+], MenuMain.prototype, "meutime", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => TelaEscolherTime_1.EscolherTime),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", TelaEscolherTime_1.EscolherTime)
+], MenuMain.prototype, "escolherTime", void 0);
+MenuMain = __decorate([
+    (0, typeorm_1.Entity)()
+], MenuMain);
 exports.MenuMain = MenuMain;

@@ -1,6 +1,12 @@
 import {DicionarioPokemon} from "./CriarPokemons";
-
+import { Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { TodosPokemons } from "./classes_Pokemon/Pokemons";
+@Entity()
 export class HabilidadesPokemon{
+    @PrimaryGeneratedColumn()
+    id: number;
+    @ManyToOne(()=>TodosPokemons, (pokemon)=>pokemon.habilidadesPokemon)
+    pokemon: TodosPokemons
     static Ember():[string, number, number, string, number]{
         const nome_habilidade = "Ember";
         const dano = 40;

@@ -2,7 +2,23 @@ import * as readlineSync from 'readline-sync';
 import {EscolherTime} from "./TelaEscolherTime";
 import {TelaMeuPokemons} from "./TelaMeuPokemons";
 import {TelaBatalha} from "./TelaBatalha";
+import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+@Entity()
 export class MenuMain {
+    @PrimaryGeneratedColumn()
+    
+    @OneToOne(() => TelaBatalha)
+    @JoinColumn()
+    batalha: TelaBatalha;
+
+    @OneToOne(() => TelaMeuPokemons)
+    @JoinColumn()
+    meutime: TelaMeuPokemons;
+
+    @OneToOne(() => EscolherTime)
+    @JoinColumn()
+    escolherTime: EscolherTime;
+
     static Tela() {
         let continuar = true;
 
