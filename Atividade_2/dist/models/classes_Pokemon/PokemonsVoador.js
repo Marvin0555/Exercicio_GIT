@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TipoVoador = void 0;
+exports.PokemonsVoador = exports.TipoVoador = void 0;
 const TelaEscolherTime_1 = require("../telas/TelaEscolherTime");
 const Pokemons_1 = require("./Pokemons");
 const typeorm_1 = require("typeorm");
@@ -31,3 +31,9 @@ TipoVoador = __decorate([
     __metadata("design:paramtypes", [String, Number, Number, Number, String])
 ], TipoVoador);
 exports.TipoVoador = TipoVoador;
+function PokemonsVoador(nome, vida, energia, velocidade) {
+    const Pokemon_modelo_voador = new Pokemons_1.TodosPokemons(nome, "Voador", vida, energia, velocidade);
+    const Pokemon_Voador = Pokemon_modelo_voador.clone();
+    return Pokemon_Voador;
+}
+exports.PokemonsVoador = PokemonsVoador;

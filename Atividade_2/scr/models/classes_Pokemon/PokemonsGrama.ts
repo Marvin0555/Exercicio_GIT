@@ -11,4 +11,8 @@ export class TipoGrama extends TodosPokemons{
         super(nome, tipo, vida, energia,velocidade);
     }
 }
-
+export function PokemonsGrama(nome:string, vida:number, energia:number, velocidade:number) {
+    const Pokemon_modelo_grama = new TodosPokemons(nome, "Grama", vida, energia, velocidade);
+    const Pokemon_Grama = Pokemon_modelo_grama.clone();
+    return Pokemon_Grama
+}

@@ -13,3 +13,8 @@ export class TipoEletrico extends TodosPokemons{
 
 }
 
+export function PokemonsEletrico(nome:string, vida:number, energia:number, velocidade:number) {
+    const Pokemon_modelo_eletrico = new TodosPokemons(nome, "Életrico", vida, energia, velocidade);
+    const Pokemon_Eletrcoo = Pokemon_modelo_eletrico.clone();
+    return Pokemon_Eletrcoo
+}

@@ -55,6 +55,10 @@ let TodosPokemons = class TodosPokemons {
         this.energia = energia;
         this.velocidade = velocidade;
     }
+    clone() {
+        const clone = Object.create(this);
+        return clone;
+    }
     GetHabilidade_1(nome, dano, energia, testo, prioridade) {
         this.Habilidade1_nome = nome;
         this.Habilidade1_dano = dano;

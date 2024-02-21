@@ -101,7 +101,7 @@ let EscolherTime = class EscolherTime {
                             console.log("Escolha confirmada");
                             if (CriarPokemons_1.DicionarioPokemon[numeroPokemon].tipo == "Fogo") {
                                 //Instanciando o Pokemon
-                                const Pokemon = new PokemonsFogo_1.TipoFogo(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = (0, PokemonsFogo_1.PokemonsFogo)(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
                                 //Habilidades
                                 Pokemon.GetHabilidade_1(habilidade_1[0], habilidade_1[1], habilidade_1[2], habilidade_1[3], habilidade_1[4]);
                                 Pokemon.GetHabilidade_2(habilidade_2[0], habilidade_2[1], habilidade_2[2], habilidade_2[3], habilidade_2[4]);
@@ -118,7 +118,7 @@ let EscolherTime = class EscolherTime {
                             }
                             else if (CriarPokemons_1.DicionarioPokemon[numeroPokemon].tipo == "Água") {
                                 //Instanciando o Pokemon
-                                const Pokemon = new PokemonsAgua_1.TipoAgua(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = (0, PokemonsAgua_1.PokemonsAgua)(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
                                 //Habilidades
                                 Pokemon.GetHabilidade_1(habilidade_1[0], habilidade_1[1], habilidade_1[2], habilidade_1[3], habilidade_1[4]);
                                 Pokemon.GetHabilidade_2(habilidade_2[0], habilidade_2[1], habilidade_2[2], habilidade_2[3], habilidade_2[4]);
@@ -135,7 +135,7 @@ let EscolherTime = class EscolherTime {
                             }
                             else if (CriarPokemons_1.DicionarioPokemon[numeroPokemon].tipo == "Grama") {
                                 //Instanciando o Pokemon
-                                const Pokemon = new PokemonsGrama_1.TipoGrama(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = (0, PokemonsGrama_1.PokemonsGrama)(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
                                 //Habilidades
                                 Pokemon.GetHabilidade_1(habilidade_1[0], habilidade_1[1], habilidade_1[2], habilidade_1[3], habilidade_1[4]);
                                 Pokemon.GetHabilidade_2(habilidade_2[0], habilidade_2[1], habilidade_2[2], habilidade_2[3], habilidade_2[4]);
@@ -152,7 +152,7 @@ let EscolherTime = class EscolherTime {
                             }
                             else if (CriarPokemons_1.DicionarioPokemon[numeroPokemon].tipo == "Eletrico") {
                                 //Instanciando o Pokemon
-                                const Pokemon = new PokemonsEletrico_1.TipoEletrico(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = (0, PokemonsEletrico_1.PokemonsEletrico)(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
                                 //Habilidades
                                 Pokemon.GetHabilidade_1(habilidade_1[0], habilidade_1[1], habilidade_1[2], habilidade_1[3], habilidade_1[4]);
                                 Pokemon.GetHabilidade_2(habilidade_2[0], habilidade_2[1], habilidade_2[2], habilidade_2[3], habilidade_2[4]);
@@ -169,7 +169,7 @@ let EscolherTime = class EscolherTime {
                             }
                             else if (CriarPokemons_1.DicionarioPokemon[numeroPokemon].tipo == "Voador") {
                                 //Instanciando o Pokemon
-                                const Pokemon = new PokemonsGrama_1.TipoGrama(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
+                                const Pokemon = (0, PokemonsVoador_1.PokemonsVoador)(CriarPokemons_1.DicionarioPokemon[numeroPokemon].nome, CriarPokemons_1.DicionarioPokemon[numeroPokemon].vida, CriarPokemons_1.DicionarioPokemon[numeroPokemon].energia, CriarPokemons_1.DicionarioPokemon[numeroPokemon].velocidade);
                                 //Habilidades
                                 Pokemon.GetHabilidade_1(habilidade_1[0], habilidade_1[1], habilidade_1[2], habilidade_1[3], habilidade_1[4]);
                                 Pokemon.GetHabilidade_2(habilidade_2[0], habilidade_2[1], habilidade_2[2], habilidade_2[3], habilidade_2[4]);

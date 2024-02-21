@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TipoEletrico = void 0;
+exports.PokemonsEletrico = exports.TipoEletrico = void 0;
 const TelaEscolherTime_1 = require("../telas/TelaEscolherTime");
 const Pokemons_1 = require("./Pokemons");
 const typeorm_1 = require("typeorm");
@@ -31,3 +31,9 @@ TipoEletrico = __decorate([
     __metadata("design:paramtypes", [String, Number, Number, Number, String])
 ], TipoEletrico);
 exports.TipoEletrico = TipoEletrico;
+function PokemonsEletrico(nome, vida, energia, velocidade) {
+    const Pokemon_modelo_eletrico = new Pokemons_1.TodosPokemons(nome, "Életrico", vida, energia, velocidade);
+    const Pokemon_Eletrcoo = Pokemon_modelo_eletrico.clone();
+    return Pokemon_Eletrcoo;
+}
+exports.PokemonsEletrico = PokemonsEletrico;

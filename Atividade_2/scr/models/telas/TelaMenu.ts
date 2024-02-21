@@ -3,6 +3,7 @@ import {EscolherTime} from "./TelaEscolherTime";
 import {TelaMeuPokemons} from "./TelaMeuPokemons";
 import {TelaBatalha} from "./TelaBatalha";
 import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { PokemonsAgua } from '../classes_Pokemon/PokemonsAgua';
 @Entity()
 export class MenuMain {
     @PrimaryGeneratedColumn()
@@ -19,7 +20,7 @@ export class MenuMain {
     @JoinColumn()
     escolherTime: EscolherTime;
 
-    static Tela() {
+    static Tela(): void {
         let continuar = true;
 
         while (continuar) {

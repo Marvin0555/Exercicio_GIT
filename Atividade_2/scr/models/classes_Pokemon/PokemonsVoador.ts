@@ -12,3 +12,8 @@ export class TipoVoador extends TodosPokemons{
     }
 }
 
+export function PokemonsVoador(nome:string, vida:number, energia:number, velocidade:number) {
+    const Pokemon_modelo_voador = new TodosPokemons(nome, "Voador", vida, energia, velocidade);
+    const Pokemon_Voador = Pokemon_modelo_voador.clone();
+    return Pokemon_Voador
+}

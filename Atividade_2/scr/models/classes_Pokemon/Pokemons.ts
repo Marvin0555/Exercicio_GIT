@@ -5,8 +5,13 @@ import { TipoEletrico } from './PokemonsEletrico';
 import { TipoVoador } from './PokemonsVoador';
 import { TipoFogo } from "./PokemonsFogo";
 import { HabilidadesPokemon } from "../HabilidadesPokemon";
+
+
+export interface Prototype{
+    clone(): Prototype;
+}
 @Entity()
-export class TodosPokemons{
+export class TodosPokemons implements Prototype{
     @PrimaryGeneratedColumn()
     id: number;
     @Column()
@@ -83,6 +88,7 @@ export class TodosPokemons{
     //@JoinColumn()
     //tipoVoador: TipoVoador
     
+    
 
     constructor(nome:string, tipo:string, vida:number, energia:number, velocidade:number){
         this.nome = nome;
@@ -90,6 +96,11 @@ export class TodosPokemons{
         this.vida = vida;
         this.energia = energia;
         this.velocidade = velocidade;   
+    }
+
+    public clone(): this {
+        const clone = Object.create(this);
+        return clone;
     }
 
     GetHabilidade_1(nome:string, dano:number, energia:number,testo:string, prioridade:number):void{

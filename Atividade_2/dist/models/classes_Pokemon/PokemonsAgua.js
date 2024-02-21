@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TipoAgua = void 0;
+exports.PokemonsAgua = exports.TipoAgua = void 0;
 const TelaEscolherTime_1 = require("../telas/TelaEscolherTime");
 const Pokemons_1 = require("./Pokemons");
 const typeorm_1 = require("typeorm");
@@ -31,3 +31,9 @@ TipoAgua = __decorate([
     __metadata("design:paramtypes", [String, Number, Number, Number, String])
 ], TipoAgua);
 exports.TipoAgua = TipoAgua;
+function PokemonsAgua(nome, vida, energia, velocidade) {
+    const Pokemon_modelo_agua = new Pokemons_1.TodosPokemons(nome, "Água", vida, energia, velocidade);
+    const Pokemon_Agua = Pokemon_modelo_agua.clone();
+    return Pokemon_Agua;
+}
+exports.PokemonsAgua = PokemonsAgua;
